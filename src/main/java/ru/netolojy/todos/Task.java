@@ -1,4 +1,5 @@
 package ru.netolojy.todos;
+
 import java.util.Objects;
 
 public class Task {
@@ -12,8 +13,6 @@ public class Task {
         return id;
     }
 
-    // Ниже находятся вспомогательные методы для корректной работы equals
-    // Переопределять их в наследниках не нужно
 
     @Override
     public boolean equals(Object o) {
