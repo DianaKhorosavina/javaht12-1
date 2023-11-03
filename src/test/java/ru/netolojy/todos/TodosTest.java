@@ -31,8 +31,8 @@ public class TodosTest {
     }
 
     @Test
-    public void shouldFindThreeTasksOfDifferentType() {
-        SimpleTask simpleTask = new SimpleTask(5, "Позвонить родителям");
+    public void shouldFindTwoTasksOfDifferentType() {
+        SimpleTask simpleTask = new SimpleTask(5, "Купить Молоко");
 
         String[] subtasks = {"Молоко", "Яйца", "Хлеб"};
         Epic epic = new Epic(55, subtasks);
@@ -43,23 +43,23 @@ public class TodosTest {
                 "Приложение НетоБанка",
                 "Во вторник после обеда"
         );
-        Object query;
+
 
         Todos todos = new Todos();
-        todos.search("Яйца");
-        todos.search("Позвонить родителям");
-        todos.search("Приложение НетоБанка");
-        todos.search("Выкатка 3й версии приложения");
+        todos.add(simpleTask);
+        todos.add(epic);
+        todos.add(meeting);
 
 
-        Task[] expected = {simpleTask, epic, meeting};
-        Task[] actual = {simpleTask, epic, meeting};
+        Task[] expected = {simpleTask, epic};
+        Task[] actual = todos.search("Молоко");
+        ;
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
     public void shouldFindOneTasksOfDifferentType() {
-        SimpleTask simpleTask = new SimpleTask(5, "помыть посуду");
+        SimpleTask simpleTask = new SimpleTask(5, "Помыть посуду");
 
         String[] subtasks = {"Молоко", "Яйца", "Хлеб"};
         Epic epic = new Epic(55, subtasks);
@@ -73,22 +73,21 @@ public class TodosTest {
         Object query;
 
         Todos todos = new Todos();
-        todos.search("Яйца");
-        todos.search("Позвонить родителям");
-        todos.search("Приложение НетоБанка");
-        todos.search("Выкатка 3й версии приложения");
+        todos.add(simpleTask);
+        todos.add(epic);
+        todos.add(meeting);
 
 
         Task[] expected = {epic};
-        Task[] actual = {epic};
+        Task[] actual = todos.search("Хлеб");
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
-    public void shouldFindTwoTasksOfDifferentType() {
-        SimpleTask simpleTask = new SimpleTask(5, "помыть посуду");
+    public void shouldFindThreeTasksOfDifferentType() {
+        SimpleTask simpleTask = new SimpleTask(5, "Протестировать Приложение");
 
-        String[] subtasks = {"Молоко", "Яйца", "Хлеб"};
+        String[] subtasks = {"Молоко", "Приложение", "Хлеб"};
         Epic epic = new Epic(55, subtasks);
 
         Meeting meeting = new Meeting(
@@ -97,17 +96,18 @@ public class TodosTest {
                 "Приложение НетоБанка",
                 "Во вторник после обеда"
         );
-        Object query;
+
 
         Todos todos = new Todos();
-        todos.search("Яйца");
-        todos.search("Позвонить родителям");
-        todos.search("Приложение НетоБанка");
-        todos.search("Выкатка 3й версии приложения");
 
 
-        Task[] expected = {epic, meeting};
-        Task[] actual = {epic, meeting};
+        todos.add(simpleTask);
+        todos.add(epic);
+        todos.add(meeting);
+
+
+        Task[] expected = {simpleTask, epic, meeting};
+        Task[] actual = todos.search("Приложение");
         Assertions.assertArrayEquals(expected, actual);
     }
 
@@ -124,19 +124,17 @@ public class TodosTest {
                 "Приложение Банка",
                 "Во вторник после обеда"
         );
-        Object query;
+
 
         Todos todos = new Todos();
-        todos.search("Яйца");
-        todos.search("Позвонить родителям");
-        todos.search("Приложение НетоБанка");
-        todos.search("Выкатка 3й версии приложения");
+        todos.add(simpleTask);
+        todos.add(epic);
+        todos.add(meeting);
 
 
         Task[] expected = {};
-        Task[] actual = {};
+        Task[] actual = todos.search("Мыло");
         Assertions.assertArrayEquals(expected, actual);
     }
-
 
 }

@@ -10,7 +10,6 @@ public class TaskTests {
 
         SimpleTask simpleTask = new SimpleTask(5, "Позвонить родителям");
 
-        Object query;
 
         Task task = new Task(5);
 
@@ -25,7 +24,6 @@ public class TaskTests {
 
         SimpleTask simpleTask = new SimpleTask(5, "Помыть посуду");
 
-        Object query;
 
         Task task = new Task(5);
 
@@ -47,7 +45,6 @@ public class TaskTests {
                 "Во вторник после обеда"
         );
 
-        Object query;
 
         Task task = new Task(555);
 
@@ -69,7 +66,6 @@ public class TaskTests {
                 "Во вторник после обеда"
         );
 
-        Object query;
 
         Task task = new Task(555);
 
@@ -91,7 +87,6 @@ public class TaskTests {
                 "Во вторник после обеда"
         );
 
-        Object query;
 
         Task task = new Task(555);
 
@@ -108,7 +103,6 @@ public class TaskTests {
         String[] subtasks = {"Молоко", "Яйца", "Хлеб"};
         Epic epic = new Epic(55, subtasks);
 
-        Object query;
 
         Task task = new Task(55);
 
@@ -125,7 +119,6 @@ public class TaskTests {
         String[] subtasks = {"Молоко", "Яйца", "Хлеб"};
         Epic epic = new Epic(55, subtasks);
 
-        Object query;
 
         Task task = new Task(55);
 
